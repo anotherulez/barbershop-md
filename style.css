@@ -63,7 +63,7 @@
   --gutter: clamp(16px, 6vw, 108px);
   --header-height: 66px;
   --radius-control: 12px;
-  --booking-size: 100px;
+  --booking-size: 112px;
   --booking-bottom: max(14px, env(safe-area-inset-bottom));
 }
 *, *::before, *::after { box-sizing: border-box; }
@@ -95,7 +95,7 @@ h2 { font-size: clamp(38px, 4.6vw, 66px); line-height: 1.02; letter-spacing: -.0
 .navigation { display: none; }
 .navigation.is-open { position: absolute; inset: 100% 0 auto; display: grid; background: var(--slate); padding: 8px var(--gutter) 16px; border-bottom: 1px solid var(--line); }
 .navigation a { position: relative; display: flex; align-items: center; min-height: 44px; }
-.navigation a::after { content: ""; position: absolute; inset: auto 0 5px; height: 1px; background: var(--bronze); transform: scaleX(0); transform-origin: left; transition: transform 260ms var(--ease); }
+.navigation a::after { content: ""; position: absolute; inset: auto 0 5px; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 260ms var(--ease); }
 .navigation a:is(:hover,:focus-visible)::after { transform: scaleX(1); }
 .menu-toggle { display: grid; place-items: center; width: 44px; height: 44px; background: transparent; border: 1px solid var(--line); }
 .menu-toggle:hover { background: var(--panel); }
@@ -125,6 +125,7 @@ h2 { font-size: clamp(38px, 4.6vw, 66px); line-height: 1.02; letter-spacing: -.0
 .hero-description { margin-top: 19px; color: #e2e8f0; max-width: 48ch; font-size: clamp(16px, 1.4vw, 19px); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
 .hero-actions .button { min-height: 50px; font-size: 15px; font-weight: 600; letter-spacing: .025em; }
+.hero-actions .button-primary { font-size: 16px; }
 
 .price-list { border-top: 1px solid var(--line); }
 .price-row { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto auto; grid-template-areas: "name name name" "duration price action"; align-items: center; gap: 3px 12px; padding: 10px 3px 6px; border-bottom: 1px solid var(--line); transition: background-color var(--quick); }
@@ -154,6 +155,7 @@ h2 { font-size: clamp(38px, 4.6vw, 66px); line-height: 1.02; letter-spacing: -.0
 }
 @media (max-width: 539px) {
   .hero-actions .button { font-size: 14px; }
+  .hero-actions .button-primary { font-size: 15px; }
 }
 @media (min-width: 540px) {
   .price-row { grid-template-columns: minmax(0, 1fr) 72px 95px 126px; grid-template-areas: "name duration price action"; padding: 8px 9px; }
@@ -350,7 +352,7 @@ h1, h2 { font-family: var(--display); font-weight: 400; }
 @keyframes booking-orbit { to { transform: rotate(360deg); } }
 .footer { padding-bottom: calc(var(--booking-size) + var(--booking-bottom) + 14px); }
 @media (max-width: 859px) {
-  :root { --booking-size: clamp(72px, 19vw, 80px); }
+  :root { --booking-size: clamp(76px, 22vw, 90px); }
   html { scroll-padding-bottom: calc(var(--booking-size) + var(--booking-bottom) + 2px); }
 }
 @media (max-width: 1050px) {
@@ -375,7 +377,7 @@ main { position: relative; z-index: 0; isolation: isolate; }
 }
 .site-header .header-info a { font-size: 14px; line-height: 18px; font-weight: 600; }
 .header-info span { font-size: 12px; line-height: 16px; }
-.header-actions > .button { font-size: 12px; line-height: 16px; }
+.header-actions > .button { font-size: 14px; line-height: 18px; }
 .booking-scissors { width: 82%; height: auto; filter: drop-shadow(1px 2px 1px rgb(2 6 24 / .25)); }
 
 @media (min-width: 2000px) {
@@ -385,7 +387,7 @@ main { position: relative; z-index: 0; isolation: isolate; }
 }
 
 .site-header a { font-optical-sizing: none; }
-.site-header .navigation a { letter-spacing: .025em; line-height: 20px; }
+.site-header .navigation a { letter-spacing: 2.8px; line-height: 20px; text-transform: uppercase; }
 .site-header .header-actions > .button { letter-spacing: .045em; }
 @media (min-width: 860px) {
   .header-actions { gap: clamp(12px, 1.3vw, 20px); }
@@ -397,10 +399,6 @@ main { position: relative; z-index: 0; isolation: isolate; }
   .site-header { position: fixed; z-index: 20; top: 0; inset-inline: 0; margin-bottom: 0; }
   .header-layout { width: calc(100% - 2 * var(--gutter)); }
   .site-header .navigation a {
-    font-size: 14px;
-    font-weight: 500;
-    letter-spacing: 2.8px;
-    text-transform: uppercase;
     white-space: nowrap;
     text-decoration: underline 1px var(--gold);
     text-underline-offset: .4em;
